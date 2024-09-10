@@ -1,20 +1,8 @@
 import './App.css';
-import {
-  Button,
-  Drawer,
-  DrawerBody,
-  DrawerContent,
-  DrawerHeader,
-  DrawerOverlay,
-  Grid,
-  GridItem,
-  Show,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { Grid, GridItem, Show } from '@chakra-ui/react';
+import NavBar from './components/NavBar';
 
 function App() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
   return (
     <Grid
       templateAreas={{
@@ -23,8 +11,8 @@ function App() {
         lg: `"nav nav" "aside main"`,
       }}
     >
-      <GridItem bg="pink.300" area="nav">
-        Nav
+      <GridItem area="nav">
+        <NavBar />
       </GridItem>
       <Show above="md">
         <GridItem bg="green.300" area="aside">
