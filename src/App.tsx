@@ -21,7 +21,6 @@ import NavBar from './components/NavBar';
 import GameGrid from './components/GameGrid';
 import GenreList from './components/GenreList';
 import { useState } from 'react';
-import { Genre } from './hooks/useGenres';
 import PlatformSelector from './components/PlatformSelector';
 import { Platform } from './hooks/usePlatforms';
 import SortSelector from './components/SortSelector';
@@ -29,8 +28,8 @@ import GameHeading from './components/GameHeading';
 import { FaBars } from 'react-icons/fa';
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   searchText: String;
 }
@@ -64,15 +63,17 @@ function App() {
             bg={colorMode === 'light' ? 'gray.100' : ''}
           >
             <GenreList
-              selectedGenre={gameQuery.genre}
-              onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+              selectedGenreId={gameQuery.genreId}
+              onSelectedGenre={(genre) =>
+                setGameQuery({ ...gameQuery, genreId: genre.id })
+              }
             />
           </GridItem>
         </Show>
         <GridItem
           p={3}
           area="main"
-          borderRadius="8px 0 0 8px"
+          borderRadius="8px"
           bg={colorMode === 'light' ? 'white' : ''}
         >
           <VStack spacing={3} align="start">
@@ -86,9 +87,9 @@ function App() {
                 />
               </Show>
               <PlatformSelector
-                selectedPlatform={gameQuery.platform}
+                selectedPlatformId={gameQuery.platformId}
                 onSelectedPlatform={(platform) =>
-                  setGameQuery({ ...gameQuery, platform })
+                  setGameQuery({ ...gameQuery, platformId: platform.id })
                 }
               />
               <SortSelector
@@ -109,11 +110,10 @@ function App() {
           <DrawerCloseButton />
           <DrawerBody>
             <GenreList
-              selectedGenre={gameQuery.genre}
-              onSelectedGenre={(genre) => {
-                setGameQuery({ ...gameQuery, genre });
-                onClose();
-              }}
+              selectedGenreId={gameQuery.genreId}
+              onSelectedGenre={(genre) =>
+                setGameQuery({ ...gameQuery, genreId: genre.id })
+              }
             />
           </DrawerBody>
         </DrawerContent>

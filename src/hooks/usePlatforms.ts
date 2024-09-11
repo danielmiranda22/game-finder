@@ -11,14 +11,13 @@ export interface Platform {
 //const usePlatforms = () => useData<Platform>('/platforms/lists/parents');
 //const usePlatforms = () => ({ data: platforms, isLoading: false, error: null });
 
-const apiClient = new APIClient('/platforms/lists/parents');
+const apiClient = new APIClient<Platform>('/platforms/lists/parents');
 
 const usePlatforms = () =>
   useQuery({
     queryKey: ['platforms'],
     queryFn: apiClient.getAll,
     staleTime: 24 * 60 * 60 * 100,
-    initialData: { count: platforms.length, results: platforms },
   });
 
 export default usePlatforms;
