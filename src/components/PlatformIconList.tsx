@@ -31,7 +31,7 @@ const PlatformIconList = ({ platforms }: Props) => {
   };
 
   return (
-    <HStack pt={3}>
+    <HStack>
       {platforms.map((platform) => (
         <Icon
           spacing={3}
