@@ -13,12 +13,15 @@ import { useState } from 'react';
 import { Genre } from './hooks/useGenres';
 import PlatformSelector from './components/PlatformSelector';
 import { Platform } from './hooks/usePlatforms';
+import { Game } from './hooks/useGames';
+
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}
 
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -40,8 +43,8 @@ function App() {
           bg={colorMode === 'light' ? 'gray.100' : ''}
         >
           <GenreList
-            selectedGenre={selectedGenre}
-            onSelectedGenre={(genre) => setSelectedGenre(genre)}
+            selectedGenre={gameQuery.genre}
+            onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
           />
         </GridItem>
       </Show>
@@ -51,13 +54,12 @@ function App() {
         bg={colorMode === 'light' ? 'white' : ''}
       >
         <PlatformSelector
-          selectedPlatform={selectedPlatform}
-          onSelectedPlatform={(platform) => setSelectedPlatform(platform)}
+          selectedPlatform={gameQuery.platform}
+          onSelectedPlatform={(platform) =>
+            setGameQuery({ ...gameQuery, platform })
+          }
         />
-        <GameGrid
-          selectedGenre={selectedGenre}
-          selectedPlatform={selectedPlatform}
-        />
+        <GameGrid gameQuery={gameQuery} />
       </GridItem>
     </Grid>
   );
