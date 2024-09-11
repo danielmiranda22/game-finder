@@ -14,13 +14,13 @@ import { useState } from 'react';
 import { Genre } from './hooks/useGenres';
 import PlatformSelector from './components/PlatformSelector';
 import { Platform } from './hooks/usePlatforms';
-import { Game } from './hooks/useGames';
 import SortSelector from './components/SortSelector';
 
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: String;
 }
 
 function App() {
@@ -37,7 +37,9 @@ function App() {
       templateColumns={{ base: '1fr', lg: '200px 1fr' }}
     >
       <GridItem area="nav" bg={colorMode === 'light' ? 'gray.100' : ''}>
-        <NavBar />
+        <NavBar
+          onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
+        />
       </GridItem>
       <Show above="lg">
         <GridItem
