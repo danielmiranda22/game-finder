@@ -2,11 +2,9 @@ import { Game } from '../hooks/useGames';
 import {
   Card,
   CardBody,
-  Flex,
   Heading,
   HStack,
   Image,
-  Text,
   VStack,
 } from '@chakra-ui/react';
 import PlatformIconList from './PlatformIconList';
