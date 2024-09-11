@@ -8,7 +8,7 @@ function App() {
     <Grid
       templateAreas={{
         base: `"nav" "main"`,
-        md: `"nav nav" "aside main"`,
+        md: `"nav nav" "main"`,
         lg: `"nav nav" "aside main"`,
       }}
     >
@@ -16,9 +16,7 @@ function App() {
         <NavBar />
       </GridItem>
       <Show above="md">
-        <GridItem bg="green.300" area="aside">
-          Aside
-        </GridItem>
+        <GridItem area="aside">Aside</GridItem>
       </Show>
       <GridItem area="main">
         <GameGrid />
