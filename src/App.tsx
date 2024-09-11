@@ -27,7 +27,10 @@ function App() {
           paddingX={5}
           bg={colorMode === 'light' ? 'gray.100' : ''}
         >
-          <GenreList onSelectedGenre={(genre) => setSelectedGenre(genre)} />
+          <GenreList
+            selectedGenre={selectedGenre}
+            onSelectedGenre={(genre) => setSelectedGenre(genre)}
+          />
         </GridItem>
       </Show>
       <GridItem area="main">
