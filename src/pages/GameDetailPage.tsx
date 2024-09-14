@@ -14,6 +14,7 @@ import DefinitionItem from '../components/DefinitionItem';
 import CriticScore from '../components/CriticScore';
 import GameAtributes from '../components/GameAttributes';
 import GameTrailer from '../components/GameTrailer';
+import GameScreeshots from '../components/GameScreeshots';
 
 const GameDetailPage = () => {
   const { slug } = useParams();
@@ -29,6 +30,7 @@ const GameDetailPage = () => {
       <ExpendableText children={game.description_raw} />
       <GameAtributes game={game} />
       <GameTrailer gameId={game.id} />
+      <GameScreeshots gameId={game.id} />
     </VStack>
   );
 };
