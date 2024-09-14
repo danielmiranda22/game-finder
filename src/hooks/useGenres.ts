@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import genres from '../data/genres';
 import APIClient from '../services/api-client';
-import { resolveMotionValue } from 'framer-motion';
+import ms from 'ms';
 
 export interface Genre {
   id: number;
@@ -18,7 +18,7 @@ const useGenres = () =>
   useQuery({
     queryKey: ['genres'],
     queryFn: apiClient.getAll,
-    staleTime: 24 * 60 * 60 * 1000, // 24h no request is going to me maked
+    staleTime: ms('24h'), //24 * 60 * 60 * 1000, // 24h no request is going to me maked
     initialData: genres,
   });
 
