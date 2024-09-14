@@ -23,15 +23,7 @@ import SortSelector from './components/SortSelector';
 import GameHeading from './components/GameHeading';
 import { FaBars } from 'react-icons/fa';
 
-export interface GameQuery {
-  genreId?: number;
-  platformId?: number;
-  sortOrder: string;
-  searchText: string;
-}
-
 function App() {
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -46,11 +38,7 @@ function App() {
         templateColumns={{ base: '1fr', lg: '200px 1fr' }}
       >
         <GridItem area="nav" bg={colorMode === 'light' ? 'gray.100' : ''}>
-          <NavBar
-            onSearch={(searchText) =>
-              setGameQuery({ ...gameQuery, searchText })
-            }
-          />
+          <NavBar />
         </GridItem>
         <Show above="lg">
           <GridItem
@@ -58,12 +46,7 @@ function App() {
             paddingX={5}
             bg={colorMode === 'light' ? 'gray.100' : ''}
           >
-            <GenreList
-              selectedGenreId={gameQuery.genreId}
-              onSelectedGenre={(genre) =>
-                setGameQuery({ ...gameQuery, genreId: genre.id })
-              }
-            />
+            <GenreList />
           </GridItem>
         </Show>
         <GridItem
@@ -73,7 +56,7 @@ function App() {
           bg={colorMode === 'light' ? 'white' : ''}
         >
           <VStack spacing={3} align="start">
-            <GameHeading gameQuery={gameQuery} />
+            <GameHeading />
             <HStack spacing={3}>
               <Show below="lg">
                 <IconButton
@@ -82,20 +65,10 @@ function App() {
                   onClick={() => onOpen()}
                 />
               </Show>
-              <PlatformSelector
-                selectedPlatformId={gameQuery.platformId}
-                onSelectedPlatform={(platform) =>
-                  setGameQuery({ ...gameQuery, platformId: platform.id })
-                }
-              />
-              <SortSelector
-                sortOrder={gameQuery.sortOrder}
-                onSelectSortOrder={(sortOrder) =>
-                  setGameQuery({ ...gameQuery, sortOrder })
-                }
-              />
+              <PlatformSelector />
+              <SortSelector />
             </HStack>
-            <GameGrid gameQuery={gameQuery} />
+            <GameGrid />
           </VStack>
         </GridItem>
       </Grid>
@@ -105,12 +78,7 @@ function App() {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerBody>
-            <GenreList
-              selectedGenreId={gameQuery.genreId}
-              onSelectedGenre={(genre) =>
-                setGameQuery({ ...gameQuery, genreId: genre.id })
-              }
-            />
+            <GenreList />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
