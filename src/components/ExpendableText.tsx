@@ -7,7 +7,7 @@ interface Props {
 
 const ExpendableText = ({ children }: Props) => {
   const [isExpended, setIsExpended] = useState(false);
-  const limit = 300;
+  const limit = children.length / 2;
 
   if (!children) return null;
 
@@ -18,7 +18,7 @@ const ExpendableText = ({ children }: Props) => {
       {isExpended ? (
         <Text>{children}</Text>
       ) : (
-        children.substring(0, 300) + '... '
+        children.substring(0, limit) + '... '
       )}
       <Button
         colorScheme="yellow"
