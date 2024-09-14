@@ -12,7 +12,7 @@ const NavBar = () => {
       <Link to="/">
         <Image
           rounded="full"
-          boxSize="60px"
+          width="60px"
           src={logo}
           boxShadow="lg"
           objectFit="cover"

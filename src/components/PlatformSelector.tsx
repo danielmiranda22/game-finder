@@ -14,7 +14,7 @@ const PlatformSelector = () => {
 
   return (
     <Menu>
-      <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+      <MenuButton as={Button} rightIcon={<ChevronDownIcon />} size="sm">
         {platform?.name || 'Platforms'}
       </MenuButton>
       <MenuList>

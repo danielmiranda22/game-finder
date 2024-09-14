@@ -54,6 +54,7 @@ const HomePage = () => {
             <HStack spacing={3} ms={2}>
               <Show below="lg">
                 <IconButton
+                  size="sm"
                   aria-label="open"
                   icon={<FaBars />}
                   onClick={() => onOpen()}

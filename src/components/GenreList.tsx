@@ -23,7 +23,7 @@ const GenreList = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <Box>
+    <Box pt={3}>
       <Heading fontSize="2xl" mb={3}>
         Genres
       </Heading>
