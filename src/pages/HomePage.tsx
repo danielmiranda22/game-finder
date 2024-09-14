@@ -51,7 +51,7 @@ const HomePage = () => {
         >
           <VStack spacing={3} align="start">
             <GameHeading />
-            <HStack spacing={3}>
+            <HStack spacing={3} ms={2}>
               <Show below="lg">
                 <IconButton
                   aria-label="open"
