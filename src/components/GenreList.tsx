@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Heading,
   HStack,
@@ -21,7 +22,7 @@ const GenreList = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <>
+    <Box>
       <Heading fontSize="2xl" mb={3}>
         Genres
       </Heading>
@@ -51,7 +52,7 @@ const GenreList = () => {
           </ListItem>
         ))}
       </List>
-    </>
+    </Box>
   );
 };
 
