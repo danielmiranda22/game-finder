@@ -1,4 +1,4 @@
-import { AspectRatio, Box } from '@chakra-ui/react';
+import { AspectRatio } from '@chakra-ui/react';
 import useTrailers from '../hooks/useTrailers';
 
 interface Props {

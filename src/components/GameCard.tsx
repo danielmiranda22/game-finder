@@ -4,10 +4,8 @@ import {
   CardBody,
   Flex,
   Heading,
-  HStack,
   Image,
   useColorMode,
-  VStack,
 } from '@chakra-ui/react';
 import PlatformIconList from './PlatformIconList';
 import CriticScore from './CriticScore';
