@@ -1,4 +1,4 @@
-import { Button, Text } from '@chakra-ui/react';
+import { Box, Button, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 
 interface Props {
@@ -14,7 +14,7 @@ const ExpendableText = ({ children }: Props) => {
   if (children.length <= limit) return <Text>children</Text>;
 
   return (
-    <>
+    <Box>
       {isExpended ? (
         <Text>{children}</Text>
       ) : (
@@ -27,7 +27,7 @@ const ExpendableText = ({ children }: Props) => {
       >
         {isExpended ? 'Read Less' : 'Read More'}
       </Button>
-    </>
+    </Box>
   );
 };
 

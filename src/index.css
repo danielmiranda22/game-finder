@@ -17,3 +17,7 @@ form {
   width: 100%;
   left: 0;
 }
+
+.br-8 {
+  border-radius: 8px;
+}

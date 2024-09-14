@@ -3,6 +3,7 @@ import useGame from '../hooks/useGame';
 import {
   Box,
   Heading,
+  HStack,
   SimpleGrid,
   Spinner,
   Text,
@@ -12,6 +13,7 @@ import ExpendableText from '../components/ExpendableText';
 import DefinitionItem from '../components/DefinitionItem';
 import CriticScore from '../components/CriticScore';
 import GameAtributes from '../components/GameAttributes';
+import GameTrailer from '../components/GameTrailer';
 
 const GameDetailPage = () => {
   const { slug } = useParams();
@@ -22,11 +24,12 @@ const GameDetailPage = () => {
   if (error || !game) throw error;
 
   return (
-    <Box p={5}>
+    <VStack p={5} align="left" spacing={6}>
       <Heading>{game.name}</Heading>
       <ExpendableText children={game.description_raw} />
       <GameAtributes game={game} />
-    </Box>
+      <GameTrailer gameId={game.id} />
+    </VStack>
   );
 };
 

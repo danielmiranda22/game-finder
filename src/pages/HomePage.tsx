@@ -46,7 +46,7 @@ const HomePage = () => {
         <GridItem
           p={3}
           area="main"
-          borderRadius="8px"
+          className="br-8"
           bg={colorMode === 'light' ? 'white' : ''}
         >
           <VStack spacing={3} align="start">
