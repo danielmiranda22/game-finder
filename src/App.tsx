@@ -1,12 +1,9 @@
 import './App.css';
 import {
-  Box,
-  Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
-  DrawerHeader,
   DrawerOverlay,
   Grid,
   GridItem,
@@ -22,7 +19,6 @@ import GameGrid from './components/GameGrid';
 import GenreList from './components/GenreList';
 import { useState } from 'react';
 import PlatformSelector from './components/PlatformSelector';
-import { Platform } from './hooks/usePlatforms';
 import SortSelector from './components/SortSelector';
 import GameHeading from './components/GameHeading';
 import { FaBars } from 'react-icons/fa';
@@ -31,7 +27,7 @@ export interface GameQuery {
   genreId?: number;
   platformId?: number;
   sortOrder: string;
-  searchText: String;
+  searchText: string;
 }
 
 function App() {
