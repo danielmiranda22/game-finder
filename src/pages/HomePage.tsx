@@ -1,45 +1,39 @@
-import './App.css';
 import {
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerOverlay,
   Grid,
   GridItem,
+  Show,
+  VStack,
   HStack,
   IconButton,
-  Show,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerBody,
   useColorMode,
   useDisclosure,
-  VStack,
 } from '@chakra-ui/react';
-import NavBar from './components/NavBar';
-import GameGrid from './components/GameGrid';
-import GenreList from './components/GenreList';
-import { useState } from 'react';
-import PlatformSelector from './components/PlatformSelector';
-import SortSelector from './components/SortSelector';
-import GameHeading from './components/GameHeading';
 import { FaBars } from 'react-icons/fa';
+import GameGrid from '../components/GameGrid';
+import GameHeading from '../components/GameHeading';
+import GenreList from '../components/GenreList';
+import PlatformSelector from '../components/PlatformSelector';
+import SortSelector from '../components/SortSelector';
 
-function App() {
-  const { colorMode, toggleColorMode } = useColorMode();
+const HomePage = () => {
+  const { colorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
       <Grid
         templateAreas={{
-          base: `"nav" "main"`,
-          lg: `"nav nav" "aside main"`,
+          base: `"main"`,
+          lg: `"aside main"`,
         }}
         bg={colorMode === 'light' ? 'gray.100' : ''}
         templateColumns={{ base: '1fr', lg: '200px 1fr' }}
       >
-        <GridItem area="nav" bg={colorMode === 'light' ? 'gray.100' : ''}>
-          <NavBar />
-        </GridItem>
         <Show above="lg">
           <GridItem
             area="aside"
@@ -84,6 +78,6 @@ function App() {
       </Drawer>
     </>
   );
-}
+};
 
-export default App;
+export default HomePage;
