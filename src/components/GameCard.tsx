@@ -5,7 +5,6 @@ import {
   Flex,
   Heading,
   Image,
-  Link,
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
@@ -13,6 +12,7 @@ import PlatformIconList from './PlatformIconList';
 import CriticScore from './CriticScore';
 import getCroppedImageUrl from '../services/image-url';
 import Emoji from './Emoji';
+import { Link as RouterLink } from 'react-router-dom';
 
 interface Props {
   game: Game;
@@ -33,16 +33,16 @@ const GameCard = ({ game }: Props) => {
           <CriticScore score={game.metacritic} />
         </Flex>
         <Heading mt={3} fontSize="2xl">
-          <Link
-            href={'/games/' + game.slug}
-            _hover={{
-              color: linkHoverColor,
-              textDecoration: 'underline',
+          <RouterLink
+            to={'/games/' + game.slug}
+            style={{
+              color: 'inherit',
+              textDecoration: 'none',
             }}
-            transition="color 0.2s"
+            className="game-link"
           >
-            {game.name}
-          </Link>
+            <span>{game.name}</span>
+          </RouterLink>
         </Heading>
         <Emoji rating={game.rating_top} />
       </CardBody>

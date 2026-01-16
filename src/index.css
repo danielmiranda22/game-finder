@@ -21,3 +21,14 @@ form {
 .br-8 {
   border-radius: 8px;
 }
+
+.game-link {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+}
+
+.game-link:hover span {
+  color: #5f86bc !important;
+  text-decoration: underline;
+}
