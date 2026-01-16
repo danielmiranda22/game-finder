@@ -4,7 +4,13 @@
 
 **[Live Demo →](https://game-finder-by-dano.vercel.app/)**
 
-![Game Finder](./screenshots/home.png)
+**Home Page Light/Dark mode**  
+![Home](./screenshots/home.png)
+![Home](./screenshots/home-dark.png)
+
+**Game Details Light/Dark mode**  
+![Detail](./screenshots/game-details.png)
+![Detail](./screenshots/game-details-dark.png)
 
 ## Features
 
