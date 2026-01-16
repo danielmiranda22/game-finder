@@ -44,12 +44,12 @@ const HomePage = () => {
           </GridItem>
         </Show>
         <GridItem
-          p={3}
+          p={{ base: 4, md: 5 }}
           area="main"
           className="br-8"
           bg={colorMode === 'light' ? 'white' : ''}
         >
-          <VStack spacing={3} align="start">
+          <VStack spacing={4} align="start">
             <GameHeading />
             <HStack spacing={3} ms={2} flexWrap="wrap">
               <Show below="lg">

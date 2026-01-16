@@ -5,20 +5,22 @@ import {
   Flex,
   Heading,
   Image,
+  Link,
   useColorMode,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import PlatformIconList from './PlatformIconList';
 import CriticScore from './CriticScore';
 import getCroppedImageUrl from '../services/image-url';
 import Emoji from './Emoji';
-import { Link } from 'react-router-dom';
 
 interface Props {
   game: Game;
 }
 
 const GameCard = ({ game }: Props) => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
+  const linkHoverColor = useColorModeValue('blue.600', 'blue.300');
 
   return (
     <Card bg={colorMode === 'light' ? 'gray.50' : ''}>
@@ -31,7 +33,16 @@ const GameCard = ({ game }: Props) => {
           <CriticScore score={game.metacritic} />
         </Flex>
         <Heading mt={3} fontSize="2xl">
-          <Link to={'/games/' + game.slug}>{game.name}</Link>
+          <Link
+            href={'/games/' + game.slug}
+            _hover={{
+              color: linkHoverColor,
+              textDecoration: 'underline',
+            }}
+            transition="color 0.2s"
+          >
+            {game.name}
+          </Link>
         </Heading>
         <Emoji rating={game.rating_top} />
       </CardBody>
